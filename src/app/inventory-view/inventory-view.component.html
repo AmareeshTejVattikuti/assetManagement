@@ -1,0 +1,97 @@
+<app-home></app-home>
+<div class="container">
+  <div class="col-md-12 container">
+    <h3 class="mb-3 text-center">Inventory Details</h3>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Device Name</label>
+      <input type="text" [(ngModel)]="Inventory.device_name" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">Device Type Name</label>
+      <input type="text" [(ngModel)]="Inventory.device_type_name" class="form-control" placeholder="Designation" readonly>
+    </div>
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">RAM</label>
+      <input type="text" [(ngModel)]="Inventory.ram_size" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">HDD</label>
+      <input type="text" [(ngModel)]="Inventory.hdd_size" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">OS Name</label>
+      <input type="text" [(ngModel)]="Inventory.os_name" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">Asset Status</label>
+      <input type="text" [(ngModel)]="Inventory.asset_tatus" class="form-control" placeholder="" readonly>
+    </div>
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Device Type ID</label>
+      <input type="text" [(ngModel)]="Inventory.device_type_id" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">Serial No</label>
+      <input type="text" [(ngModel)]="Inventory.serial_no" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Model</label>
+      <input type="text" [(ngModel)]="Inventory.model" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">RAM ID</label>
+      <input type="text" [(ngModel)]="Inventory.ram_id" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">HDD ID</label>
+      <input type="text" [(ngModel)]="Inventory.hdd_id" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">Processor</label>
+      <input type="text" [(ngModel)]="Inventory.processor" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Warranty Date</label>
+      <input type="date" [(ngModel)]="Inventory.warranty_date" class="form-control" placeholder="" readonly style="width: 5.5cm;">
+    
+      <label class="col-sm-3">Purchase Date</label>
+      <input type="date" [(ngModel)]="Inventory.purchased_date" class="form-control" placeholder="" readonly style="width: 5.5cm;">
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">OS ID</label>
+      <input type="text" [(ngModel)]="Inventory.os_id" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">Description</label>
+      <input type="text" [(ngModel)]="Inventory.description" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Repair</label>
+      <input type="text" [(ngModel)]="Inventory.repair" class="form-control" placeholder="" readonly>
+
+      <label class="col-sm-3">Active</label>
+      <input type="text" [(ngModel)]="Inventory.is_active" class="form-control" placeholder="" readonly>
+    </div>
+    
+  </div>
+  <div class="accordion scroll" id="accordionExample">
+    <div class="card container-fluid">
+      <div class="card-header" id="headingOne" style="background-color: #007bff;">
+        <h2 class="mb-0">
+          <button class="btn btn-link-primary btn-lg" style="color: white;"type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+           ----------------------------------------- CLICK HERE TO SEE ASSET HISTORY -----------------------------------------
+          </button>
+        </h2>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">  
+          <table class="table table-bordered table-hover" style="border-color: #007bff; color: blue;" *ngFor="let dev of device">
+          Action     :- {{dev.description}} <br>
+          Employee ID:- {{dev.employee_id}} <br> 
+          Name       :- {{dev.first_name}} {{dev.last_name}} <br>
+          Date :-  {{dev.end_date}} <br>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

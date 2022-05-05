@@ -1,0 +1,61 @@
+<!--link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet"-->
+<app-home></app-home>
+<div class="container-fluid custom-container-2">
+
+  <!-- Show it when there is no inventory -->
+  <div class="no-data text-center" *ngIf="Inventory.length == 0">
+    <p>There is no inventory added yet!</p>
+    <button class="btn btn-outline-primary" routerLink="/create-inventory">Add Inventory</button>
+  </div>
+
+  <!-- Inventory list table, it hides when there is no inventory -->
+  <div *ngIf="Inventory.length !== 0">
+    <!--h3 class="mb-3 text-center">Inventory List</h3-->
+
+    <div class="col-md-12 table-responsive tableFixHead">
+      <div class="form-group form-inline">
+        <input type="text" class="form-control" placeholder="Search any field..." [(ngModel)]="term" style="width: 10cm;border-color: #007bff;">
+        <p style="width: 18cm;padding-left: 11cm;"><b>Total Assets: {{Inventory.length}} || Unassigned: {{UnasInv.length}}</b></p>
+        <button class="btn btn-outline-success btn-sm" (click)="download()"><i class="fa fa-download mr-1" aria-hidden="true"></i>Download Report</button>     
+      </div>
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <!--th scope="col" style="width:9.1%">Inventory ID</th-->
+            <th scope="col">Device Name</th>
+            <th scope="col">Serial No</th>
+            <th scope="col">Model</th>
+            <th scope="col">Warranty Date</th>
+            <th scope="col">Purchase Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Active</th>
+            <th scope="col">Device Type</th>
+            <th scope="col">Asset Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inventory of Inventory | filter:term">
+            <!--td>{{inventory.id}}</td-->
+            <td>{{inventory.device_name}}</td>
+            <td>{{inventory.serial_no}}</td>
+            <td>{{inventory.model}}</td>
+            <td>{{inventory.warranty_date }}</td>
+            <td>{{inventory.purchased_date}}</td>
+            <td>{{inventory.description}}</td>
+            <td>{{inventory.is_active}}</td>
+            <td>{{inventory.device_type_name}}</td>
+            <td>{{inventory.asset_status}}</td>
+            <td>
+              <span title="edit inventory details" class="mr-1" routerLink="/inventory-edit/{{inventory.id}}"><i class="fa fa-fw fa-edit"></i></span>
+              <span title="delete inventory" class="mr-1" (click)="delInventory(inventory.id)"><i class="fa fa-fw fa-trash" style="color: tomato;"></i></span>
+              <span title="view inventory details and history" class="mr-1" [routerLink]="['/inventory-view',inventory.id]"><i class="fa fa-fw fa-eye" style="color: green"></i></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

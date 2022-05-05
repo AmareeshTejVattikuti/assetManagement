@@ -1,0 +1,31 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-5 mb-3 bg-white border-bottom shadow-sm">
+    <h4 class="my-0 mr-md-auto font-weight-normal" style="color: red;font-size: 30px;"><b>GSC Asset Management</b>  <img src="assets/images/expeditors.png" style="padding-bottom: 20px; padding-left: 10px;height: 50px;width: 50x;"></h4>
+</div>
+<div id="form-wrapper" style="max-width:500px;margin:auto;display: block;padding-top: 1.5cm;">
+<h6 style="text-align: center;background-color: red;color: white;padding-bottom:5px;padding-top: 5px;border-radius: 5px;"></h6>
+<form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()" style="padding-left: 2.5cm;background-color:whitesmoke;padding-top: 1cm;padding-bottom:1cm;border-radius: 10px;">
+    <div class="form-group">
+        <label for="email" class="mr-4" style="font-size: 20px;"><b>Email</b></label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter expeditors email here" style="width: 80%;"/>
+        <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+            <div *ngIf="fval.email.errors.required">Email is required</div>
+            <div *ngIf="fval.email.errors.email">Enter valid email address</div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="password" class="mr-3" style="font-size: 20px"><b>Password</b></label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter password here" style="width: 80%;"/>
+        <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+            <div *ngIf="fval.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div class="form-group" style="padding-left: 3cm;">
+        <button [disabled]="loading" class="btn btn-primary btn-md">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+        </button>
+        <!--a routerLink="/register" class="btn btn-link">Register</a-->
+    </div>
+</form>
+<h6 style="text-align: center;background-color: red;color: white;padding-bottom:5px;padding-top: 5px;border-radius: 5px;"></h6>
+</div>

@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng2-slim-loading-bar/style.css";
+.multiselect-dropdown {
+    font-size:17px !important;
+    text-align: center;
+    color: #007bff;
+    background-color: #007bff;
+    width: 8cm !important;
+    border-radius: 5px;
+
+}
+.dropdown-btn{
+    color: white;
+}

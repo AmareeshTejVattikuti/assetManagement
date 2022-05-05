@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<app-home></app-home>
+<div class="container">
+  <div class="col-md-12 container">
+    <h5 class="mb-3 text-center">Employee Details</h5>
+    <br>
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-2">Employee ID:</label>
+      <input type="text" [(ngModel)]="employeeData.gs_id" class="form-control" placeholder="" readonly>
+
+      <label class="col-sm-2">User ID:</label>
+      <input type="text" [(ngModel)]="employeeData.employee_id" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-2">Name:</label>
+      <input type="text" [(ngModel)]="employeeData.name" class="form-control" placeholder="" readonly>
+
+      <label class="col-sm-2">Email:</label>
+      <input type="text" [(ngModel)]="employeeData.email" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-2">Department:</label>
+      <input type="text" [(ngModel)]="employeeData.department_id" class="form-control" placeholder="" readonly>
+
+      <label class="col-sm-2">Designation:</label>
+      <input type="text" [(ngModel)]="employeeData.designation" class="form-control" placeholder="" readonly>
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-2">Supervisor</label>
+      <input type="text" [(ngModel)]="employeeData.supervisor" class="form-control" placeholder="" readonly>
+
+      <label class="col-sm-2">Date Of Joining</label>
+      <input type="date" [(ngModel)]="employeeData.date_of_joining" class="form-control" placeholder="" readonly>
+    </div>
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-2">Employment Type</label>
+      <input type="text" [(ngModel)]="employeeData.employment_type" class="form-control" placeholder="" readonly>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="col-md-15 form-group form-inline" style="border-radius: 15px;justify-content: center;">
+
+    <ng-multiselect-dropdown
+          [placeholder]="'Assign Inventory'"
+          [data]="Inventory"
+          [(ngModel)]="selectedItems"
+          [settings]="dropdownSettings"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)" >
+    </ng-multiselect-dropdown>
+
+
+    <p style="padding-top: 14px; padding-left: 120px;">
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+       Click to see Employee Assets : {{assetData.length}}
+      </button>
+    </p>
+    <div class="collapse" id="collapse" style="border-radius: 0px;">
+      <div class="card card-body" style="width: 25cm;">
+        <table class="table table-hover table-bordered" style="text-align: center;width: 24cm;">
+          <thead>
+            <tr>
+              <th scope="col">Device Type</th>
+              <th scope="col">Device Name</th>
+              <th scope="col">Inventory ID</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asset of assetData; let i = index">
+              <td>{{asset.device_type_name}}</td>
+              <td>{{asset.device_name}}</td>
+              <td>{{asset.id}}</td>
+              <td>
+                <span class="btn btn-primary btn-sm mr-4" data-toggle="collapse" [attr.data-target]="'#test'+i" aria-expanded="false" aria-controls="collapse"><i class="fa fa-fw fa-eye fa-1x" style="color:white"></i>View Details</span>
+                <div class="collapse container" id="test{{i}}">
+                  <br>
+                  <div class="form-group form-inline">
+                  <label class="col-sm-4">Processor:</label>
+                  <input type="text" [(ngModel)]="asset.processor" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">Serial No:</label>
+                    <input type="text" [(ngModel)]="asset.serial_no" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">Model:</label>
+                    <input type="text" [(ngModel)]="asset.model" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">RAM Size:</label>
+                    <input type="text" [(ngModel)]="asset.ram_size" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">HDD Size:</label>
+                    <input type="text" [(ngModel)]="asset.hdd_size" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">Description:</label>
+                    <input type="text" [(ngModel)]="asset.description" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">Repair:</label>
+                    <input type="text" [(ngModel)]="asset.repair" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">OS:</label>
+                  <input type="text" [(ngModel)]="asset.os_name" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">Warranty Date:</label>
+                    <input type="text" [(ngModel)]="asset.warranty_date" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">Purchase Date:</label>
+                    <input type="text" [(ngModel)]="asset.purchased_date" class="form-control" placeholder="" readonly>
+                  </div>
+                  <div class="form-group form-inline">
+                    <label class="col-sm-4">Asset Status:</label>
+                    <input type="text" [(ngModel)]="asset.asset_status" class="form-control" placeholder="" readonly>
+                  </div>
+                  <br>
+                </div>
+                <span class="btn btn-success btn-sm mr-4" data-toggle="modal" [attr.data-target]="'#test1'+i"><i class="fa fa-fw fa-user fa-1x" style="color: white"></i>Assign To</span>
+                <div class="modal" data-keyboard="false" data-backdrop="static" id="test1{{i}}" tabindex="-1">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                <input type="text" class="form-control" placeholder="Search employee..." [(ngModel)]="term" style="width: 5cm;border-color: #007bff;">
+                                  <button class="close btn-primary" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                <table class="table table-hover table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Employee ID</th>
+                                      <th scope="col">Unique ID</th>
+                                      <th scope="col">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let emp of employee | filter:term">
+                                        <td>{{emp.employee_id}}</td>
+                                        <td>{{emp.id}}</td>
+                                        <td><button title="Assign" class="btn btn-primary btn-sm" type="button" (click)="updateEIM(emp.id,asset.id,asset.device_name,emp.employee_id)">
+                                          <i class="fa fa-hand-o-right fa-1x" style="color: white"></i></button>
+                                        </td>
+                                      </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+                <span class="btn btn-danger btn-sm" (click)="removeEmpInv(asset.id,asset.device_name,employeeData.employee_id)"><i class="fa fa-fw fa-times fa-1x" style="color:white"></i>Remove</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

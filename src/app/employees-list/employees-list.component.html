@@ -1,0 +1,58 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+<app-home></app-home>
+<div class="container-fluid custom-container-2">
+
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center" *ngIf="Employee.length == 0">
+    <p>There is no employee added yet!</p>
+    <button class="btn btn-outline-primary" routerLink="/create-employee">Add Empoyee</button>
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="Employee.length !== 0">
+
+    <div class="col-md-12 table-responsive tableFixHead">
+      <div class="form-group form-inline">
+        <input type="text" class="form-control" placeholder="Search any field..." [(ngModel)]="term" style="width: 10cm;border-color: #007bff;">
+        <p style="width: 18cm;padding-left: 13cm;"><b>Total Employees: {{Employee.length}}</b></p>
+        <button class="btn btn-outline-success btn-sm" (click)="download()"><i class="fa fa-download mr-1" aria-hidden="true"></i>Download Report</button>
+      </div>
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Department ID</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Supervisor</th>
+            <th scope="col">Date Of Joining</th>
+            <th scope="col">Employment Type</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of Employee | filter:term">
+            <td>{{employee.gs_id}}</td>
+            <td>{{employee.employee_id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.department_id}}</td>
+            <td>{{employee.designation}}</td>
+            <td>{{employee.supervisor}}</td>
+            <td>{{employee.date_of_joining}}</td>
+            <td>{{employee.employment_type}}</td>
+            <td>
+              <span title="Edit Employee Details" class="Edit mr-1" routerLink="/employee-edit/{{employee.employee_id}}"><i class="fa fa-fw fa-edit"></i></span>
+              <span title="Delete Employee" class="Delete mr-1" (click)="deleteEmployee(employee.employee_id,employee.id)"><i class="fa fa-fw fa-trash" style="color: tomato"></i></span>
+              <span title="Click to view assets assigned and employee details" class="view mr-1" [routerLink]="['/employee-view',employee.employee_id,employee.id]"><i class="fa fa-fw fa-eye" style="color: green"></i></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

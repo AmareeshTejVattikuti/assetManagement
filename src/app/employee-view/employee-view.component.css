@@ -1,0 +1,32 @@
+.form-control {
+    width: 300px;
+}
+::placeholder{
+
+color: lightgrey;
+}
+/*::ng-deep .multi {
+   color:lightskyblue;
+    width: 8cm;
+    height: 1cm;
+    background-color: #007bff;
+    align-items: center;
+    border-style: hidden;
+    border-radius: 5px;
+}
+/*:host ::ng-deep .multiselect-dropdown .dropdown-btn*/ 
+/*.modal{
+    display: block !important; /* I added this to see the modal, you don't need this */
+
+
+/* Important part */
+.h4 {
+    align-items: center;
+}
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 400px;
+    overflow-y: auto;
+}

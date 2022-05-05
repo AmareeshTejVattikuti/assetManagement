@@ -1,0 +1,17 @@
+<app-home></app-home>
+<div class="container-fluid my-5 custom-container">
+  <div class="col-md-12">
+    <h4 class="mb-3 text-center">Add Department</h4>
+    <br>
+    <div class="col-md-12 form-group form-inline" style="padding-left: 4cm;">
+      <label class="col-sm-3">Deprtment Name</label>
+      <input type="text" [(ngModel)]="departmentDetails.department_name" class="form-control" placeholder="">
+    </div>
+    <br>
+    
+    <div class="form-group text-center">
+      <button class="btn btn-success btn-lg" (click)="addDepartment()">Add</button>
+    </div>
+
+  </div>
+</div>

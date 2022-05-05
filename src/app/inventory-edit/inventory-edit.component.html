@@ -1,0 +1,60 @@
+<app-home></app-home>
+<div class="container custom-container">
+  <div class="col-md-12">
+    
+    <h3 class="mb-3 text-center">Update Inventory</h3>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Device Name</label>
+      <input type="text" [(ngModel)]="inventoryData.device_name" class="form-control" placeholder="">
+    
+      <label class="col-sm-3">Device Type ID</label>
+      <input type="text" [(ngModel)]="inventoryData.device_type_id" class="form-control" placeholder="">
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Serial No</label>
+      <input type="text" [(ngModel)]="inventoryData.serial_no" class="form-control" placeholder="" readonly>
+    
+      <label class="col-sm-3">Model</label>
+      <input type="text" [(ngModel)]="inventoryData.model" class="form-control" placeholder="">
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">RAM ID</label>
+      <input type="text" [(ngModel)]="inventoryData.ram_id" class="form-control" placeholder="">
+
+      <label class="col-sm-3">HDD ID</label>
+      <input type="text" [(ngModel)]="inventoryData.hdd_id" class="form-control" placeholder="">
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Processor</label>
+      <input type="text" [(ngModel)]="inventoryData.processor" class="form-control" placeholder="">
+
+      <label class="col-sm-3">OS ID</label>
+      <input type="text" [(ngModel)]="inventoryData.os_id" class="form-control" placeholder="">
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Warranty Date</label>
+      <input type="date" [(ngModel)]="inventoryData.warranty_date" class="form-control" placeholder="">
+
+      <label class="col-sm-3">Purchase Date</label>
+      <input type="date" [(ngModel)]="inventoryData.purchased_date" class="form-control" placeholder="">
+    </div>
+
+    <div class="col-md-12 form-group form-inline">
+      <label class="col-sm-3">Description</label>
+      <input type="text" [(ngModel)]="inventoryData.description" class="form-control" placeholder="">
+
+      <label class="col-sm-3">Repair</label>
+      <input type="text" [(ngModel)]="inventoryData.repair" class="form-control" placeholder="">
+    </div>
+    <br>
+    <div class="form-group text-center">
+      <button class="btn btn-success btn-lg" (click)="updateInventory()">Update Inventory</button>
+    </div>
+    
+  </div>
+</div>

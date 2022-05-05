@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-5 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal" style="color: red;font-size: 30px;"><b>GSC Asset Management</b>  <img src="assets/images/expeditors.png" style="padding-bottom: 20px; padding-left: 10px;height: 50px;width: 50x;"></h5>
+  <ng2-slim-loading-bar color="red"></ng2-slim-loading-bar>
+  <!--nav class="my-2 my-md-0 mr-md-3">
+    <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/create-employee">Create Employee</a>
+  </nav>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/employees-list">Employee List</a>
+  </nav-->
+  <!--nav class="my-2 my-md-0 mr-md-3">
+    <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/create-inventory">Create Inventory</a>
+  </nav>
+  <nav class="my-2 my-md-0 mr-md-3">
+  <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/inventory-list">Inventory List</a>
+  </nav-->
+  
+  <div class="dropdown mr-3">
+    <button type="button" class="btn btn-danger dropdown-toggle btn-md" data-toggle="dropdown"><i class="fa fa-address-card"></i> Employee
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/create-employee"><b>Create Employee</b></a>      
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/employees-list"><b>Employee List</b></a>
+    </div>
+  </div>
+  <div class="dropdown mr-3">
+    <button type="button" class="btn btn-danger dropdown-toggle btn-md" data-toggle="dropdown">
+    <i class="fa fa-shopping-cart"></i>  Inventory
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/create-inventory"><b>Create Inventory</b></a>      
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/inventory-list"><b>Inventory List</b></a>
+    </div>
+  </div>
+
+  <div class="dropdown mr-3">
+    <button type="button" class="btn btn-danger dropdown-toggle btn-md" data-toggle="dropdown">
+    <i class="fa fa-bars"></i>  Other Additions
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/master-list"><b>View Master List</b></a>      
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/create-department"><b>Department</b></a>
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/create-device"><b>Devices</b></a>
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/create-ram"><b>RAM</b></a>
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/create-hdd"><b>HDD</b></a>
+      <a class="dropdown-item" href="#" routerLinkActive="active" routerLink="/create-os"><b>Operating System</b></a>
+    </div>
+  </div>
+
+  <span class="btn btn-outline-danger btn-sm" style="border-radius: 20px;" (click)="logout()"><i class="fa fa-eye-slash fa-1x" style="padding-right: 3px;"></i><b>Logout</b></span>
+<div style="position: absolute;padding-top: 1.6cm;padding-left:5px;font-size: 10px;color: red;">
+  <label><b>Welcome "{{user}}"</b></label>
+</div>
+</div>

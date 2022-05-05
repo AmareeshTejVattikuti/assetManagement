@@ -1,0 +1,148 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+<app-home></app-home>
+<div class="container-fluid custom-container-2" style="height: 10cm;">
+
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center" *ngIf="Master.length == 0">
+    <p>There is no Master List present!!<br>
+    Try to add using Devices, RAM, Operation System, HDD and Department</p>
+    <button class="btn btn-outline-primary" routerLink="/create-department">Add Department</button>
+    <button class="btn btn-outline-primary" routerLink="/create-ram">Add RAM Details</button>
+    <button class="btn btn-outline-primary" routerLink="/create-hdd">Add HDD Details</button>
+    <button class="btn btn-outline-primary" routerLink="/create-os">Add OS Details</button>
+    <button class="btn btn-outline-primary" routerLink="/create-device">Add Device</button>
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="Master.length !== 0" style="width: 33.3%;height: 8cm;float: left;" id='div1'>
+    <h5 class="mb-3 text-center">Device List</h5>
+
+    <div class="col-md-12 table-responsive tableFixHead" >
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Device Type Name</th>
+            <th scope="col">Device ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dev of device">
+            <td>{{dev.device_type_name}}</td>
+            <td>{{dev.id}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="no-data text-center">
+      <button class="btn btn-primary" routerLink="/create-device">Add Device</button>
+    </div>
+  </div>
+  <div *ngIf="Master.length !== 0" style="width: 33.3%;height: 8cm;float: left;" id='div2'>
+    <h5 class="mb-3 text-center">OS List</h5>
+
+    <div class="col-md-12 table-responsive tableFixHead">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">OS ID</th>
+            <th scope="col">OS Name</th>
+            <th scope="col">OS Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of os">
+            <td>{{o.id}}</td>
+            <td>{{o.os_name}}</td>
+            <td>{{o.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+      <div class="no-data text-center">
+        <button class="btn btn-primary" routerLink="/create-os">Add OS</button>
+      </div>
+  </div>
+  <div *ngIf="Master.length !== 0" style="width: 33.3%;height: 8cm;float:right;" id='div3'>
+    <h5 class="mb-3 text-center">HDD List</h5>
+
+    <div class="col-md-12 table-responsive tableFixHead">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">HDD ID</th>
+            <th scope="col">HDD Size</th>
+            <th scope="col">HDD type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hd of hdd">
+            <td>{{hd.id}}</td>
+            <td>{{hd.hdd_size}}</td>
+            <td>{{hd.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+      <div class="no-data text-center">
+        <button class="btn btn-primary" routerLink="/create-hdd">Add HDD</button>
+      </div>
+  </div>
+</div>
+<div class="container-fluid custom-container-2">
+
+    <div *ngIf="Master.length !== 0" style="width: 33%;height: 8cm;float: left;" id='div4'>
+      <h5 class="mb-3 text-center">RAM List</h5>
+  
+      <div class="col-md-12 table-responsive tableFixHead">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th scope="col">RAM ID</th>
+              <th scope="col">RAM Size</th>
+              <th scope="col">RAM type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ra of ram">
+              <td>{{ra.id}}</td>
+              <td>{{ra.ram_size}}</td>
+              <td>{{ra.type}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="no-data text-center">
+        <button class="btn btn-primary" routerLink="/create-ram">Add RAM</button>
+      </div>
+  </div>
+  <div *ngIf="Master.length !== 0" style="width: 33%;height: 8cm;float:left" id='div5'>
+    <h5 class="mb-3 text-center">Department List</h5>
+
+    <div class="col-md-12 tableFixHead">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Department ID</th>
+            <th scope="col">Department Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dep of department">
+            <td>{{dep.id}}</td>
+            <td>{{dep.department_name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+      <div class="no-data text-center">
+        <button class="btn btn-primary" routerLink="/create-department">Add Department</button>
+      </div>
+      <br><br>
+ </div>
+
+</div>
